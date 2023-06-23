@@ -1,25 +1,25 @@
-                            OLS Regression Results                            
-==============================================================================
-Dep. Variable:                      y   R-squared:                       0.926
-Model:                            OLS   Adj. R-squared:                  0.925
-Method:                 Least Squares   F-statistic:                     1230.
-Date:                Fri, 23 Jun 2023   Prob (F-statistic):           2.81e-57
-Time:                        18:36:29   Log-Likelihood:                -144.67
-No. Observations:                 100   AIC:                             293.3
-Df Residuals:                      98   BIC:                             298.6
-Df Model:                           1                                         
-Covariance Type:            nonrobust                                         
+                                 OLS Regression Results                                
+=======================================================================================
+Dep. Variable:                      y   R-squared (uncentered):                   0.955
+Model:                            OLS   Adj. R-squared (uncentered):              0.955
+Method:                 Least Squares   F-statistic:                              2115.
+Date:                Fri, 23 Jun 2023   Prob (F-statistic):                    1.30e-68
+Time:                        18:40:12   Log-Likelihood:                         -144.94
+No. Observations:                 100   AIC:                                      291.9
+Df Residuals:                      99   BIC:                                      294.5
+Df Model:                           1                                                  
+Covariance Type:            nonrobust                                                  
 ==============================================================================
                  coef    std err          t      P>|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-Intercept      0.0752      0.104      0.722      0.472      -0.131       0.282
-x              3.6147      0.103     35.077      0.000       3.410       3.819
+x              4.7191      0.103     45.986      0.000       4.515       4.923
 ==============================================================================
-Omnibus:                        5.184   Durbin-Watson:                   1.995
-Prob(Omnibus):                  0.075   Jarque-Bera (JB):                3.000
-Skew:                           0.210   Prob(JB):                        0.223
-Kurtosis:                       2.262   Cond. No.                         1.06
+Omnibus:                        5.116   Durbin-Watson:                   1.986
+Prob(Omnibus):                  0.077   Jarque-Bera (JB):                2.979
+Skew:                           0.209   Prob(JB):                        0.226
+Kurtosis:                       2.265   Cond. No.                         1.00
 ==============================================================================
 
 Notes:
-[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[1] R² is computed without centering (uncentered) since the model does not contain a constant.
+[2] Standard Errors assume that the covariance matrix of the errors is correctly specified.

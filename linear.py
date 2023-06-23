@@ -26,10 +26,10 @@ def main(args):
 
     # Simulate data with a linear relationship
     rnd = np.random.RandomState(args.seed)
-    X = rnd.normal(size=(100, ))  # 100 samples (data)
-    b = 3.5  # slope
-    z = rnd.normal(size=(100, ))  # 100 samples (noise)
-    y = b*X + z  # 100 samples (target)
+    X = rnd.normal(size=(args.samples, ))  # samples (data)
+    b = args.slope  # slope
+    z = rnd.normal(size=(args.samples, ))  # samples (noise)
+    y = b*X + z  # samples (target)
 
     # Create a pandas dataframe
     features = ['x']
@@ -37,8 +37,10 @@ def main(args):
     df = pd.DataFrame(np.stack((X, y), axis=1), columns=features + label)
 
     # Fit the model
-    # formula = 'y ~ x -1'  # y = b * x + z (do not fit the intercept)
-    formula = 'y ~ x'  # y = b * x + z
+    if args.no_intercept:
+        formula = 'y ~ x -1'  # y = b * x + z (do not fit the intercept)
+    else:
+        formula = 'y ~ x'  # y = b * x + z
     model = smf.ols(formula=formula, data=df)
     results = model.fit()
 
@@ -126,6 +128,14 @@ if __name__ == '__main__':
                         type=float,
                         default=3.5,
                         help='Slope of the linear relationship')
+    parser.add_argument('-n',
+                        '--samples',
+                        type=int,
+                        default=100,
+                        help='Number of samples')
+    parser.add_argument('--no-intercept',
+                        action='store_true',
+                        help='Do not fit the intercept')
     parser.add_argument('-s', '--seed', type=int, default=0, help='Random seed')
     args = parser.parse_args()
 

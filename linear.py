@@ -43,6 +43,8 @@ def main(args):
     results = model.fit()
 
     print(results.summary())
+    with open('linear.txt', 'w') as f:
+        f.write(results.summary().as_text())
 
     pred = results.get_prediction()
     infl = results.get_influence()
